@@ -95,13 +95,17 @@ class SpectAnalyzer:
 
         if self.selector:
             self.selector.disconnect_events()
+        kwargs = {
+            "useblit": True,
+            "button": [1],
+            "interactive": True,
+        }
+        if "drawtype" in RectangleSelector.__init__.__code__.co_varnames:
+            kwargs["drawtype"] = "box"
         self.selector = RectangleSelector(
             self.ax,
             onselect=lambda *args: None,
-            drawtype="box",
-            useblit=True,
-            button=[1],
-            interactive=True,
+            **kwargs,
         )
         self.canvas.draw()
 
