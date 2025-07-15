@@ -59,7 +59,8 @@ class SpectAnalyzer:
         self.spects = load_spects(list(paths))
         self.processed = self.spects.copy()
         self.index = 0
-        self.display_current()
+        # automatically pool for easier viewing
+        self.apply_pooling()
 
     def apply_pooling(self) -> None:
         if not self.spects:
