@@ -14,7 +14,7 @@ def load_spects(paths: List[str]) -> List[np.ndarray]:
     spects: List[np.ndarray] = []
     for path in paths:
         data = np.load(path)
-
+        print(f"Loaded {path} with shape {data.shape}")
         if data.ndim == 3:
             # Determine if spectrograms are stacked on the first or last axis.
             first_is_stack = data.shape[0] < data.shape[1] and data.shape[0] < data.shape[2]

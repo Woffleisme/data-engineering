@@ -5,7 +5,7 @@ from typing import Iterable, List, Tuple
 
 def average_pooling(data2d: np.ndarray, window_size: Tuple[int, int]) -> np.ndarray:
     """Average pool ``data2d`` using ``window_size``."""
-    windows = util.view_as_blocks(data2d, window_size)
+    windows = skimage.util.view_as_blocks(data2d, window_size)
     avg = np.average(windows, axis=(2, 3))
     return avg / np.max(avg)
 
